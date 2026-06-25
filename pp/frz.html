@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Arina ❤️</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffe5ec,#ffc2d1,#ffb3c6);
+    min-height:100vh;
+    overflow-x:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:750px;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(12px);
+    border-radius:30px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+    position:relative;
+    z-index:2;
+}
+
+.hidden{
+    display:none;
+}
+
+.hero-photo{
+    display:flex;
+    justify-content:center;
+    position:relative;
+    margin-bottom:15px;
+}
+
+.hero-photo img{
+    width:280px;
+    max-width:100%;
+    border-radius:25px;
+    border:5px solid white;
+    box-shadow:
+    0 0 20px rgba(255,105,180,.6),
+    0 0 40px rgba(255,105,180,.4);
+    animation:fotoMasuk 1.2s ease;
+}
+
+.hero-photo::before{
+    content:"❤️";
+    position:absolute;
+    left:-15px;
+    top:-10px;
+    font-size:40px;
+}
+
+.hero-photo::after{
+    content:"🌹";
+    position:absolute;
+    right:-15px;
+    bottom:-10px;
+    font-size:35px;
+}
+
+.caption{
+    color:#ff4f87;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+h1,h2,h3{
+    color:#e91e63;
+}
+
+p{
+    color:#444;
+    line-height:1.8;
+    margin:12px 0;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    padding:14px 28px;
+    border-radius:999px;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-yes{
+    background:#ff4f87;
+    color:white;
+}
+
+.btn-yes:hover{
+    transform:scale(1.08);
+}
+
+#btn-no{
+    background:#888;
+    color:white;
+    position:absolute;
+}
+
+.big-heart{
+    font-size:90px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+.heart{
+    position:fixed;
+    pointer-events:none;
+    z-index:1;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes fotoMasuk{
+    from{
+        opacity:0;
+        transform:translateY(-20px) scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.coupon{
+    margin-top:20px;
+    background:#fff0f5;
+    border:3px dashed #ff4f87;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 0 20px rgba(255,79,135,.25);
+}
+
+.coupon-title{
+    color:#ff4f87;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HALAMAN AWAL -->
+
+<div class="card" id="intro">
+
+<div class="hero-photo">
+    <img src="foto-kita.jpg" alt="Lovyuuuu">
+</div>
+
+<div class="caption">
+    maaf agak alay soalnya alayfyu very full ❤️
+</div>
+
+<div class="big-heart">❤️</div>
+
+<h1>
+    Hai Arinaa yang cantik dan kerennn ❤️
+</h1>
+
+<p>
+    Aku tau akhir-akhir ini aku sering bikin kamu kesel,
+    marah, bahkan mungkin kecewa sama aku.
+</p>
+
+<p>
+    Makanya aku bikin sesuatu buat kamu.
+</p>
+
+<p>
+    Coba pencet tombol di bawah yaa,
+    cuma sebentar kok 🥺👉👈
+</p>
+
+<br>
+
+<button class="btn btn-yes" onclick="bukaSurat()">
+    Buka Dulu Dong ❤️
+</button>
+```
+
+</div>
+<!-- HALAMAN SURAT -->
+<div class="card hidden" id="surat">
+
+    <h2>Rinnn, Baca Ini Dulu Ya 🥺❤️</h2>
+
+    <div style="text-align:left; margin-top:20px; max-height:400px; overflow-y:auto; padding-right:10px;">
+
+        <p>maaf ya rinnn . 🙏</p>
+
+        <p>
+            Aku sadar banget kalau ego aku susah berhenti susah berubah,
+            maaf yaa sering bikin kamu marah bikin kamu kesel,
+            dan sikap aku yang sering bikin kamu kecewa berulang kali.
+        </p>
+
+        <div style="
+            background:#fff0f5;
+            padding:15px;
+            border-left:5px solid #ff4f87;
+            border-radius:10px;
+            color:#e91e63;
+            font-style:italic;
+        ">
+            "Aku tahu kata maaf aja gak pernah cukup buat nebus semua rasa kecewa kamu.
+            Tapi ketahuilah, aku gak pernah ada niat sedikit pun untuk bikin kamu sedih."
+        </div>
+
+        <p>
+            Kamu itu hal paling berharga di hidup aku.
+            Aku gak mau kehilangan kamu,
+            aku gak mau kita jauh-jauhan cuma karena kebodohan aku
+            yang terus terulang.
+        </p>
+
+        <p>
+            Aku janji akan berusaha lebih keras lagi buat berubah
+            dan bakal jadi lebih baik.
+        </p>
+
+        <p>
+            Tolong tuntun aku terus yaa...
+            aku masih banyak kurangnya,
+            tapi aku beneran gak mau nyerah buat memperbaiki semuanya.
+        </p>
+
+        <p>
+            Terima kasih karena selama ini masih sabar,
+            masih mau dengerin aku,
+            dan masih mau ada buat aku.
+        </p>
+
+        <p>
+            Mungkin aku belum sempurna,
+            tapi satu hal yang pasti...
+        </p>
+
+        <p style="
+            text-align:center;
+            font-weight:bold;
+            color:#e91e63;
+            font-size:18px;
+        ">
+            Aku gak pernah berhenti peduli sama kamu ❤️
+        </p>
+
+    </div>
+
+    <br>
+
+    <h3>
+        Jadi... kamu masih mau maafin aku kan? 🥺❤️
+    </h3>
+
+    <br>
+
+    <div style="
+        position:relative;
+        min-height:100px;
+        display:flex;
+        justify-content:center;
+        gap:20px;
+        align-items:center;
+    ">
+
+        <button class="btn btn-yes" onclick="terimaMaaf()">
+            Mau Dong ❤️
+        </button>
+
+        <button id="btn-no" class="btn">
+            Gak Mau 😝
+        </button>
+
+    </div>
+
+</div>
+
+<!-- HALAMAN SUKSES -->
+<div class="card hidden" id="sukses">
+
+    <div style="font-size:90px;">
+        🥰
+    </div>
+
+    <h1>
+        YEEAAAYYY! ❤️❤️❤️
+    </h1>
+
+    <p>
+        Makasih banyak ya rinn udah maafin aku.
+    </p>
+
+    <p>
+        Aku seneng banget sekarang 🥺❤️
+    </p>
+
+    <p>
+        Aku bakal berusaha jadi lebih baik lagi,
+        dan gak mau ngulang kesalahan yang sama.
+    </p>
+
+   <div class="coupon">
+
+    <div class="coupon-title">
+        🎟️ KUPON SPESIAL UNTUK ARINA 🎟️
+    </div>
+
+    <h2>
+        🍦 JAJAN ENAK + ES KRIM ❤️
+    </h2>
+
+    <p>
+        Dapat ditukarkan saat kita ketemu nanti 🥰
+    </p>
+
+    <p>
+        🍜 Makanan favorit kamu
+    </p>
+
+    <p>
+        🥤 Minuman favorit kamu
+    </p>
+
+    <p>
+        ❤️ Bonus perhatian ekstra dari Fakhrez
+    </p>
+
+</div>
+
+<br>
+
+<button class="btn btn-yes" onclick="hubungiIG()">
+    📷 Kirim DM ke Aku ❤️
+</button>
+
+<br><br>
+
+<button class="btn btn-yes" onclick="location.reload()">
+    Buka Surat Lagi ❤️
+</button>
+    </div>
+
+    <br>
+
+
+</div>
+<script>
+
+// ======================
+// MUSIK
+// ======================
+
+const music = document.getElementById("bgMusic");
+
+function bukaSurat(){
+
+    music.play().catch(()=>{});
+
+    document.getElementById("intro").classList.add("hidden");
+    document.getElementById("surat").classList.remove("hidden");
+
+    // efek hati saat buka surat
+    for(let i=0;i<15;i++){
+        setTimeout(buatHati,i*100);
+    }
+}
+
+
+// ======================
+// HUJAN HATI & BUNGA
+// ======================
+
+function buatHati(){
+
+    const item = document.createElement("div");
+
+    item.className = "heart";
+
+    const icons = ["❤️","💖","💕","🌹"];
+
+    item.innerHTML = icons[
+        Math.floor(Math.random()*icons.length)
+    ];
+
+    item.style.left = Math.random()*100 + "vw";
+
+    item.style.fontSize =
+        (15 + Math.random()*25) + "px";
+
+    item.style.animationDuration =
+        (4 + Math.random()*4) + "s";
+
+    document.body.appendChild(item);
+
+    setTimeout(()=>{
+        item.remove();
+    },8000);
+}
+
+setInterval(buatHati,1200);
+
+
+// ======================
+// TOMBOL GAK MAU KABUR
+// ======================
+
+const btnNo = document.getElementById("btn-no");
+
+let kaburCount = 0;
+
+function kabur(){
+
+    const x =
+        Math.random() *
+        (window.innerWidth - 180);
+
+    const y =
+        Math.random() *
+        (window.innerHeight - 100);
+
+    btnNo.style.left = x + "px";
+    btnNo.style.top = y + "px";
+
+    kaburCount++;
+
+    if(kaburCount === 3){
+        alert(
+            "Eitss 😝\nGak bisa dipencet kan?"
+        );
+    }
+
+    if(kaburCount === 6){
+        alert(
+            "Hayooo 😆\nKlik yang pink aja dong ❤️"
+        );
+    }
+
+    if(kaburCount === 10){
+        alert(
+            "Aku udah lindungi tombol ini dengan kekuatan cinta 😎❤️"
+        );
+    }
+}
+
+btnNo.addEventListener("mouseover",kabur);
+
+btnNo.addEventListener("touchstart",(e)=>{
+    e.preventDefault();
+    kabur();
+});
+
+btnNo.addEventListener("click",(e)=>{
+    e.preventDefault();
+    kabur();
+});
+
+
+// ======================
+// SAAT DIMAAFKAN
+// ======================
+
+function terimaMaaf(){
+
+    document
+        .getElementById("surat")
+        .classList.add("hidden");
+
+    document
+        .getElementById("sukses")
+        .classList.remove("hidden");
+
+    confetti({
+        particleCount:250,
+        spread:120,
+        origin:{ y:0.6 }
+    });
+
+    confetti({
+        particleCount:150,
+        angle:60,
+        spread:90,
+        origin:{x:0}
+    });
+
+    confetti({
+        particleCount:150,
+        angle:120,
+        spread:90,
+        origin:{x:1}
+    });
+
+    for(let i=0;i<60;i++){
+        setTimeout(
+            buatHati,
+            i*70
+        );
+    }
+}
+function hubungiIG(){
+
+    window.open(
+        "https://instagram.com/elllll_haqqq_",
+        "_blank"
+    );
+
+}
+
+// ======================
+// PESAN PENUTUP
+// ======================
+
+console.log(
+"Untuk Arina ❤️"
+);
+
+</script>
+
+</body>
+</html>
